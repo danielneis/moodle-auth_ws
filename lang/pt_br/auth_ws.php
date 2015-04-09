@@ -36,6 +36,7 @@ $string['auth_function_username_paramname_desc'] = 'Nome do parâmetro esperado 
 $string['auth_serverurl'] = 'URL do webservice';
 $string['auth_serverurl_desc'] = 'A URL completa para o webservice para executar a autenticação.';
 $string['auth_wsdescription'] = 'Este plugin permite autenticar usuários com base em um webservice externo.';
+$string['changepasswordurl'] = 'URL para trocar a senha';
 $string['default_params'] = 'Parâmetros padrão';
 $string['default_params_desc'] = 'Parâmetros fixos para serem enviados nas chamadas de webservice. Exemplo: a:b,c:d,e:f';
 $string['protocol'] = 'Protocolo';

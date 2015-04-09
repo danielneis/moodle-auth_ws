@@ -166,6 +166,21 @@ if (!isset($config->removeuser)) {
     </td>
 </tr>
 
+<tr valign="top">
+    <td align="right"><label for="changepasswordurl"><?php print_string("changepasswordurl", "auth_ws") ?></label></td>
+    <td>
+        <input id="changepasswordurl" name="changepasswordurl" type="text" value="<?php echo $config->changepasswordurl ?>" />
+        <?php
+
+        if (isset($err['changepasswordurl'])) {
+            echo $OUTPUT->error_text($err['changepasswordurl']);
+        }
+
+        ?>
+    </td>
+    <td><?php print_string('changepasswordhelp', 'auth') ?></td>
+</tr>
+
 <?php
 print_auth_lock_options($this->authtype, $user_fields, '', false, true);
 ?>
