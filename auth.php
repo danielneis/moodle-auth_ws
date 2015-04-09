@@ -27,7 +27,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->libdir.'/authlib.php');
-require_once($CFG->libdir.'/ddllib.php');
 
 /**
  * External webservice authentication plugin.
