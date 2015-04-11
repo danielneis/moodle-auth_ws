@@ -1,0 +1,10 @@
+{
+    "name": "danielneis/moodle-auth_ws",
+    "type": "moodle-auth",
+    "require": {
+        "composer/installers": "~1.0"
+    },
+    "extra": {
+        "installer-name": "ws"
+    }
+}
