@@ -36,18 +36,18 @@ class auth_plugin_ws extends auth_plugin_base {
     /**
      * Constructor.
      */
-    function __construct() {
+    public function __construct() {
         $this->authtype = 'ws';
         $this->config = get_config('auth/ws');
 
         if (isset($this->config->default_params) && !empty($this->config->default_params)) {
             $params = explode(',', $this->config->default_params);
-            $default_params = array();
+            $defaultparams = array();
             foreach ($params as $p) {
                 list($paramname, $value) = explode(':', $p);
-                $default_params[$paramname] = $value;
+                $defaultparams[$paramname] = $value;
             }
-            $this->config->ws_default_params = $default_params;
+            $this->config->ws_default_params = $defaultparams;
         } else {
             $this->config->ws_default_params = array();
         }
@@ -61,12 +61,11 @@ class auth_plugin_ws extends auth_plugin_base {
      * @param string $password The password
      * @return bool Authentication success or failure.
      */
-    function user_login($username, $password) {
+    public function user_login($username, $password) {
 
         $functionname = $this->config->auth_function;
         $params  = array($this->config->auth_function_username_paramname => $username,
                          $this->config->auth_function_password_paramname => $password);
-
 
         $result = $this->call_ws($this->config->auth_serverurl, $functionname, $params);
 
@@ -82,11 +81,11 @@ class auth_plugin_ws extends auth_plugin_base {
      * @param bool $do_updates  Optional: set to true to force an update of existing accounts
      * @return int 0 means success, 1 means failure
      */
-    function sync_users(progress_trace $trace, $do_updates=false) {
+    public function sync_users(progress_trace $trace, $do_updates=false) {
         return true;
     }
 
-    function get_userinfo($username) {
+    public function get_userinfo($username) {
         return array();
     }
 
@@ -117,10 +116,10 @@ class auth_plugin_ws extends auth_plugin_base {
      * @param array $err errors
      * @return void
      */
-    function validate_form($form, &$err) {
+    public function validate_form($form, &$err) {
     }
 
-    function prevent_local_passwords() {
+    public function prevent_local_passwords() {
         return true;
     }
 
@@ -131,7 +130,7 @@ class auth_plugin_ws extends auth_plugin_base {
      *
      * @return bool
      */
-    function is_internal() {
+    public function is_internal() {
         return false;
     }
 
@@ -143,7 +142,7 @@ class auth_plugin_ws extends auth_plugin_base {
      *
      * @return bool true means automatically copy data from ext to user table
      */
-    function is_synchronised_with_external() {
+    public function is_synchronised_with_external() {
         return false;
     }
 
@@ -153,7 +152,7 @@ class auth_plugin_ws extends auth_plugin_base {
      *
      * @return bool
      */
-    function can_change_password() {
+    public function can_change_password() {
         return false;
     }
 
@@ -163,7 +162,7 @@ class auth_plugin_ws extends auth_plugin_base {
      *
      * @return moodle_url
      */
-    function change_password_url() {
+    public function change_password_url() {
         if (isset($this->config->changepasswordurl) && !empty($this->config->changepasswordurl)) {
             return new moodle_url($this->config->changepasswordurl);
         } else {
@@ -176,7 +175,7 @@ class auth_plugin_ws extends auth_plugin_base {
      *
      * @return bool
      */
-    function can_reset_password() {
+    public function can_reset_password() {
         return false;
     }
 
@@ -191,7 +190,7 @@ class auth_plugin_ws extends auth_plugin_base {
      * @param array $user_fields
      * @return void
      */
-    function config_form($config, $err, $user_fields) {
+    public function config_form($config, $err, $user_fields) {
         include 'config.html';
     }
 
@@ -201,8 +200,7 @@ class auth_plugin_ws extends auth_plugin_base {
      * @param srdClass $config
      * @return bool always true or exception
      */
-    function process_config($config) {
-        // set to defaults if undefined
+    public function process_config($config) {
         if (!isset($config->protocol)) {
             $config->protocol = 'soap';
         }
@@ -234,7 +232,6 @@ class auth_plugin_ws extends auth_plugin_base {
             $config->changepasswordurl = '';
         }
 
-        // Save settings.
         set_config('protocol',                         $config->protocol,                         'auth/ws');
         set_config('auth_serverurl',                   $config->auth_serverurl,                   'auth/ws');
         set_config('default_params',                   $config->default_params,                   'auth/ws');
