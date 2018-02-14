@@ -15,15 +15,28 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version details
+ * WS authentication plugin upgrade code
  *
  * @package    auth_ws
- * @copyright  Daniel Neis Araujo
+ * @copyright  2018 Daniel Neis Araujo
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2018021300;
-$plugin->requires  = 2017051500;
-$plugin->component = 'auth_ws';
+/**
+ * Function to upgrade auth_ws.
+ * @param int $oldversion the version we are upgrading from
+ * @return bool result
+ */
+function xmldb_auth_ws_upgrade($oldversion) {
+    global $CFG, $DB;
+
+    if ($oldversion < 2018021300) {
+        // Convert info in config plugins from auth/ws to auth_ws
+        upgrade_fix_config_auth_plugin_names('ws');
+        upgrade_fix_config_auth_plugin_defaults('ws');
+        upgrade_plugin_savepoint(true, 2018021300, 'auth', 'ws');
+    }
+    return true;
+}

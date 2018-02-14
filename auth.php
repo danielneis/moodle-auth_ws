@@ -38,7 +38,7 @@ class auth_plugin_ws extends auth_plugin_base {
      */
     public function __construct() {
         $this->authtype = 'ws';
-        $this->config = get_config('auth/ws');
+        $this->config = get_config('auth_ws');
 
         if (isset($this->config->default_params) && !empty($this->config->default_params)) {
             $params = explode(',', $this->config->default_params);
@@ -108,17 +108,6 @@ class auth_plugin_ws extends auth_plugin_base {
         }
     }
 
-    /**
-     * A chance to validate form data, and last chance to
-     * do stuff before it is inserted in config_plugin
-     *
-     * @param stfdClass $form
-     * @param array $err errors
-     * @return void
-     */
-    public function validate_form($form, &$err) {
-    }
-
     public function prevent_local_passwords() {
         return true;
     }
@@ -177,72 +166,5 @@ class auth_plugin_ws extends auth_plugin_base {
      */
     public function can_reset_password() {
         return false;
-    }
-
-    /**
-     * Prints a form for configuring this authentication plugin.
-     *
-     * This function is called from admin/auth.php, and outputs a full page with
-     * a form for configuring this plugin.
-     *
-     * @param stdClass $config
-     * @param array $err errors
-     * @param array $user_fields
-     * @return void
-     */
-    public function config_form($config, $err, $user_fields) {
-        include 'config.html';
-    }
-
-    /**
-     * Processes and stores configuration data for this authentication plugin.
-     *
-     * @param srdClass $config
-     * @return bool always true or exception
-     */
-    public function process_config($config) {
-        if (!isset($config->protocol)) {
-            $config->protocol = 'soap';
-        }
-        if (!isset($config->auth_serverurl)) {
-            $config->auth_serverurl = '';
-        }
-        if (!isset($config->default_params)) {
-            $config->default_params = '';
-        }
-        if (!isset($config->auth_function)) {
-            $config->auth_function = '';
-        }
-        if (!isset($config->auth_function_username_paramname)) {
-            $config->auth_function_username_paramname = '';
-        }
-        if (!isset($config->auth_function_password_paramname)) {
-            $config->auth_function_password_paramname = '';
-        }
-        if (!isset($config->auth_function_resultClass)) {
-            $config->auth_function_resultClass = '';
-        }
-        if (!isset($config->auth_function_resultField)) {
-            $config->auth_function_resultField = '';
-        }
-        if (!isset($config->removeuser)) {
-            $config->removeuser = AUTH_REMOVEUSER_KEEP;
-        }
-        if (!isset($config->changepasswordurl)) {
-            $config->changepasswordurl = '';
-        }
-
-        set_config('protocol',                         $config->protocol,                         'auth/ws');
-        set_config('auth_serverurl',                   $config->auth_serverurl,                   'auth/ws');
-        set_config('default_params',                   $config->default_params,                   'auth/ws');
-        set_config('auth_function',                    $config->auth_function,                    'auth/ws');
-        set_config('auth_function_username_paramname', $config->auth_function_username_paramname, 'auth/ws');
-        set_config('auth_function_password_paramname', $config->auth_function_password_paramname, 'auth/ws');
-        set_config('auth_function_resultClass',        $config->auth_function_resultClass,        'auth/ws');
-        set_config('auth_function_resultField',        $config->auth_function_resultField,        'auth/ws');
-        set_config('removeuser',                       $config->removeuser,                       'auth/ws');
-        set_config('changepasswordurl',                $config->changepasswordurl,                'auth/ws');
-
-        return true;
     }
 }
