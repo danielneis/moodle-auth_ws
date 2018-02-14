@@ -30,10 +30,9 @@ defined('MOODLE_INTERNAL') || die();
  * @return bool result
  */
 function xmldb_auth_ws_upgrade($oldversion) {
-    global $CFG, $DB;
 
     if ($oldversion < 2018021300) {
-        // Convert info in config plugins from auth/ws to auth_ws
+        // Convert info in config plugins from auth/ws to auth_ws.
         upgrade_fix_config_auth_plugin_names('ws');
         upgrade_fix_config_auth_plugin_defaults('ws');
         upgrade_plugin_savepoint(true, 2018021300, 'auth', 'ws');

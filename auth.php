@@ -78,10 +78,10 @@ class auth_plugin_ws extends auth_plugin_base {
      * using Moodle's webservices.
      *
      * @param progress_trace $trace
-     * @param bool $do_updates  Optional: set to true to force an update of existing accounts
+     * @param bool $doupdates  Optional: set to true to force an update of existing accounts
      * @return int 0 means success, 1 means failure
      */
-    public function sync_users(progress_trace $trace, $do_updates=false) {
+    public function sync_users(progress_trace $trace, $doupdates = false) {
         return true;
     }
 
