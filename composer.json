@@ -1,7 +1,7 @@
 {
     "name": "danielneis/moodle-auth_ws",
     "description": "This plugins allows your Moodle users to be authenticated against an external webservice",
-    "license": "GPLv3",
+    "license": "GPL-3.0-or-later",
     "authors": [
         {
             "name": "Daniel Neis Araujo",
