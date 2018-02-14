@@ -34,3 +34,6 @@ Dev Info
 Please, report issues at: https://github.com/danielneis/moodle-auth_ws/issues
 
 Feel free to send pull requests at: https://github.com/danielneis/moodle-auth_ws/pulls
+
+[![Build Status](https://travis-ci.org/danielneis/moodle-auth_ws.svg?branch=master)](https://travis-ci.org/danielneis/moodle-auth_ws)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/danielneis/moodle-auth_ws/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/danielneis/moodle-auth_ws/?branch=master)
