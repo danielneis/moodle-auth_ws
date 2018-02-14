@@ -28,7 +28,7 @@ Users should have "auth = ws" for this plugin to authenticate users.
 
 The screenshot below shows an example of how to configure you plugin to call your webservice
 
-[![Config Example](https://github.com/danielneis/moodle-auth_ws/blob/master/moodle-auth_ws_settings.png)
+![Config Example](https://github.com/danielneis/moodle-auth_ws/blob/master/moodle-auth_ws_settings.png)
 
 Dev Info
 --------
