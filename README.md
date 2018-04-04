@@ -30,6 +30,14 @@ The screenshot below shows an example of how to configure you plugin to call you
 
 ![Config Example](https://github.com/danielneis/moodle-auth_ws/blob/master/moodle-auth_ws_settings.png)
 
+Create new user account on login
+-----------------------------------
+
+For this to happen you must change the "is_synchronised_with_external" function at
+https://github.com/danielneis/moodle-auth_ws/blob/master/auth.php#L134 to return true.
+
+Then you must implement the "get_userinfo" function at https://github.com/danielneis/moodle-auth_ws/blob/master/auth.php#L88 to return the information for the user. See the fields on user table that Moodle may use to check if user is confirmed/complete.
+
 Dev Info
 --------
 
