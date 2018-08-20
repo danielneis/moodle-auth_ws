@@ -24,6 +24,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2018021300;
+$plugin->version   = 2018082000;
 $plugin->requires  = 2017051500;
 $plugin->component = 'auth_ws';

@@ -67,7 +67,7 @@ class auth_plugin_ws extends auth_plugin_base {
         $params  = array($this->config->auth_function_username_paramname => $username,
                          $this->config->auth_function_password_paramname => $password);
 
-        $result = $this->call_ws($this->config->auth_serverurl, $functionname, $params);
+        $result = $this->call_ws($this->config->serverurl, $functionname, $params);
 
         return ($result[$this->config->auth_function_resultClass][$this->config->auth_function_resultField] == true);
     }
