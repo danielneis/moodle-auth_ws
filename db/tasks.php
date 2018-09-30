@@ -15,15 +15,25 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version details
+ * Task definition for auth_ws.
  *
- * @package    auth_ws
- * @copyright  Daniel Neis Araujo
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   auth_ws
+ * @copyright Daniel Neis Araujo <danielneis@gmail.com>
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2018093001;
-$plugin->requires  = 2017051500;
-$plugin->component = 'auth_ws';
+$tasks = array(
+    array(
+        'classname' => '\auth_ws\task\sync_users',
+        'blocking' => 0,
+        'minute' => 'R',
+        'hour' => 'R',
+        'day' => '*',
+        'month' => '*',
+        'dayofweek' => '*',
+        'disabled' => 1
+    )
+);
+

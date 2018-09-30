@@ -22,7 +22,6 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['pluginname'] = 'External webservice authentication';
 $string['auth_function'] = 'Auth function';
 $string['auth_function_desc'] = 'The name of the function to use to authenticate users';
 $string['auth_function_password_paramname'] = 'Password parameter name';
@@ -33,12 +32,14 @@ $string['auth_function_resultField'] = 'Result Field';
 $string['auth_function_resultField_desc'] = 'The field of the class containing boolean the result of webservice.';
 $string['auth_function_username_paramname'] = 'Username parameter name (authenticate)';
 $string['auth_function_username_paramname_desc'] = 'Name of the paramater to send username as to the webservice.';
-$string['serverurl'] = 'Auth Server URL';
-$string['serverurl_desc'] = 'Full URL to webservice to execute the authentication functions';
 $string['auth_wsdescription'] = 'This plugin autheticates against an external webservice.';
 $string['changepasswordurl'] = 'Change Password URL';
 $string['changepasswordurl_desc'] = 'Your custom URL for users to change their passwords.';
 $string['default_params'] = 'Default parameters';
 $string['default_params_desc'] = 'Parameters to be used in every webservice call. Example: a:b,c:d,e:f';
+$string['pluginname'] = 'External webservice authentication';
 $string['protocol'] = 'Protocol';
 $string['protocol_desc'] = 'Protocol used by webservice. Currently only SOAP.';
+$string['serverurl'] = 'Auth Server URL';
+$string['serverurl_desc'] = 'Full URL to webservice to execute the authentication functions';
+$string['syncuserstask'] = 'Sync users from auth_ws';
